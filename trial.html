@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- responsive to mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shaimaa Hassan's Calculator</title>
+    <!-- icon style sheets -->
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- main style_t css file -->
+    <link rel="stylesheet" href="css/style_t.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300;400;600&display=swap" rel="stylesheet">
+<!-- Bootstrap5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- render all elements normally -->
+<link rel="stylesheet" href="css/normalize.css">
+</head>
+<body>
+    <div class="w-25 m-auto mt-5 p-4 text-center " style="background-color: #ccc;">
+        <form class="ps-1 pe-1 pt-1 mb-3">
+            <input class="w-100 ps-3 pe-3" style="height: 50px; pointer-events: none;" type="text" name="textview" id="textview"><!--الشاشة بتاعة الالة الحاسبة --><!--pointer-events لا يسمح لي بالكتابة على الشاشة -->
+        </form>
+        
+            <div class="d-flex justify-content-between "><!--صفوف زراير الالة الحاسبة-->
+                <div class="p-1 w-25 "><input class="rounded fw-bold outline-none btn-primary text-white fs-5 w-100" type="button" style="height: 45px; border-color: #d6d6d6;" value="C" onclick="clean();" ></div>
+                <div class="p-1 w-25 "><input class="rounded fw-bold outline-none btn-primary text-white fs-5 w-100" type="button" style="height: 45px; border-color: #d6d6d6;" value="&#8756;" ></div> <!--زرار فاضي للشكل فقط عبارة عن 3 نقط-->
+                <div class="p-1 w-25 "><input class="rounded fw-bold outline-none btn-primary text-white fs-5 w-100" type="button" style="height: 45px; border-color: #d6d6d6;" value="Del" onclick="back();"></div>
+                <div class="p-1 w-25 "><input class="rounded  fw-bold fs-4 btn-success text-white outline-none  w-100" type="button" style ="height: 45px; border-color:#d6d6d6;" value="&#247;" onclick="insert('/');" ></div><!--رمز علامة القسمة-->
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary w-100" type="button" style="height: 45px;" value="7" onclick="insert(7);" ></div>
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary w-100" type="button" style="height: 45px;" value="8" onclick="insert(8);" ></div>
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary w-100" type="button" style="height: 45px;" value="9" onclick="insert(9);" ></div>
+                <div class="p-1 w-25"><input class="rounded fw-bold fs-4 btn-success text-white w-100" type="button" style="height: 45px; border-color:#d6d6d6;" value="&#215;" onclick="insert('*');"></div><!--رمز علامة الضرب-->
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary  w-100" type="button" style="height: 45px;" value="4" onclick="insert(4);"></div>
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary  w-100" type="button" style="height: 45px;" value="5" onclick="insert(5);"></div>
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary  w-100" type="button" style="height: 45px;" value="6" onclick="insert(6);"></div>
+                <div class="p-1 w-25"><input class="rounded fw-bold fs-4 btn-success text-white  w-100" type="button" style="height: 45px; border-color:#d6d6d6;" value="&#8722;" onclick="insert('-');"></div><!--رمز علامة الطرح-->
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary w-100" type="button" style="height: 45px;" value="1" onclick="insert(1);"></div>
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary w-100" type="button" style="height: 45px;" value="2" onclick="insert(2);"></div>
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary w-100" type="button" style="height: 45px;" value="3" onclick="insert(3);"></div>
+                <div class="p-1 w-25"><input class="rounded fw-bold fs-4 btn-success text-white w-100" type="button" style="height: 45px; border-color:#d6d6d6;" value="&#43;" onclick="insert('+');"></div><!--رمز علامة الجمع-->
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary w-100" type="button" style="height: 45px;" value="." onclick="insert('.');"></div>
+                <div class="p-1 w-25"><input class="fw-bold rounded border-secondary outline-none btn-secondary w-100" type="button" style="height: 45px;" value="0" onclick="insert(0);"></div>
+                <div class="p-1 w-50"><input class="rounded fw-bold btn-danger text-white fs-4  w-100" style="height: 45px; border-color: #d6d6d6;" type="button" value="&#61;" onclick="equal();" ></div><!--رمز علامة يساوي-->
+            </div>
+        
+    </div>
+    <!-- js-Bootstrap5 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- js -->
+    <script src="javascript/calc.js"></script>
+</body>
+</html>
